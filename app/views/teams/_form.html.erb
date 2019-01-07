@@ -1,0 +1,20 @@
+
+<div class="container">
+  <%= simple_form_for [team] do |f| %>
+    <% if @team.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @team.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :capacity %>
+    <div class="text-center"> <%= f.button :submit, class: 'btn' %> </div>
+  <% end %>
+</div>
+

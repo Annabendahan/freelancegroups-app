@@ -1,0 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "components/index";
+
+body {
+  background: #F4F4F4;
+}
+
+
+p {
+  font-family: Lato;
+}
+
+h1 {
+text-align: center;
+font-family: Lato;
+font-size: 900;
+}
