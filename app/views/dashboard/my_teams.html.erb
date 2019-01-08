@@ -1,5 +1,38 @@
-<% @teams.each do |t| %>
-<%= t.title %>
-<%= t.description %>
-<% end %>
+<div class="container" >
+  <br>
+  <br>
+  <br>
+  <br>
 
+
+  <h1> Mes teams </h1>
+
+  <% @teams.each do |t| %>
+  <h4> <%= t.title %> </h4>
+  <p> <%= t.description %> </p>
+  <p> <%= t.location %> </p>
+  <p> <%= t.capacity %></p>
+
+    <% if t.requests.count > 0 %>
+     Requests:
+      <% t.requests.each do |r| %>
+        <% if r.status == "Pending" %>
+        <div class="request" >
+          REQUEST: <%= r.text %>
+          RESPONSE : <%= r.answer %>
+          STATUS: <%= r.status %>
+        </div>
+        <%= simple_form_for [t, r] do |f| %>
+        <%= f.input :answer %>
+        <%= f.input :status, collection: ["Pending", "Accepted", "Declined"] %>
+        <%= f.submit "Send my answer", class: "btn btn-blue" %>
+        <% end %>
+
+
+        <% end %>
+      <%end%>
+    <%end%>
+  <% end %>
+
+
+</div>

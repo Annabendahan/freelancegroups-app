@@ -1,0 +1,8 @@
+<div class="form-group">
+<%= simple_form_for [@request] do |f| %>
+
+  <%= f.input :status, collection: ["Pending", "Accepted", "Declined"] %>
+  <%= f.input :text %>
+  <%= f.button :submit, class: 'btn btn-blue' %> </div>
+<% end %>
+</div>

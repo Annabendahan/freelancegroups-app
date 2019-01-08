@@ -1,19 +1,25 @@
-show.html.erb
-
-
-<h4> <%= @team.title %> </h4>
-<p> <%= @team.description %> </p>
-<p> Capacity : <%= @team.capacity %> </p>
-
-
-<%= link_to "Make a request", new_team_request_path(@team), class: "btn" %>
+<div class="container" >
+  <br>
+  <br>
+  <br>
+  <br>
 
 
 
-<h4> Requests : </h4>
 
-<% @requests.each do |r| %>
-<p> <%= r.text %> : <%= r.status %> </p>
-<%= r.user.username %>
-<% end %>
+  <h4> <%= @team.title %> </h4>
+  <p> <%= @team.description %> </p>
+  <p> Capacity : <%= @team.capacity %> </p>
 
+
+  <%= link_to "Make a request", new_team_request_path(@team), class: "btn" %>
+
+
+
+  <h4> Members : </h4>
+
+  <% @members.each do |m| %>
+  <%= m.user.username %>
+  <%= m.user.id %>
+  <% end %>
+</div>

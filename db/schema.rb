@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_161228) do
+ActiveRecord::Schema.define(version: 2019_01_08_164525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2019_01_07_161228) do
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_participations_on_team_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "team_id"
@@ -33,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_161228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "Pending"
+    t.string "answer"
     t.index ["team_id"], name: "index_requests_on_team_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
@@ -45,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_161228) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
@@ -66,6 +78,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_161228) do
   end
 
   add_foreign_key "groups", "users"
+  add_foreign_key "participations", "teams"
+  add_foreign_key "participations", "users"
   add_foreign_key "requests", "teams"
   add_foreign_key "requests", "users"
   add_foreign_key "teams", "users"

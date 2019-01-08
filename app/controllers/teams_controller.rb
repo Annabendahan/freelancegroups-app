@@ -1,11 +1,17 @@
 class TeamsController < ApplicationController
   def index
     @teams= Team.all
+    @markers = @teams.map do |t|
+      {
+        lng: t.longitude,
+        lat: t.latitude
+      }
+    end
   end
 
   def show
     @team = Team.find(params[:id])
-    @requests = Request.where(:team == @team.id)
+    @members = Request.where(team_id: @team.id, status: "Accepted")
   end
 
   def new

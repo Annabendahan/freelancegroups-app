@@ -15,9 +15,18 @@ class RequestsController < ApplicationController
     flash[:notice] = "Your request has been sent!"
   end
 
+
+  def update
+    @request = Request.find(params[:id])
+    @request.update(request_params)
+    redirect_to my_teams_path
+    flash[:notice] = "Your answered!"
+
+  end
+
 private
 
   def request_params
-    params.require(:request).permit(:user, :team, :text)
+    params.require(:request).permit(:user, :team, :text, :answer, :status)
   end
 end

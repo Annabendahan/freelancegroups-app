@@ -1,0 +1,17 @@
+<div class="container" >
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <h1> My requests </h1>
+
+  <% @requests.each do |r| %>
+  <h4> Request to  <%= r.team.title %> </h4>
+  <p> Your message: <%= r.text %> </p>
+  <p> Status : <%= r.status %> </p>
+
+  <%end%>
+</div>
+
