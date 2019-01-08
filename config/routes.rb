@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :teams do
     resources :requests
+    resources :events
   end
 
 

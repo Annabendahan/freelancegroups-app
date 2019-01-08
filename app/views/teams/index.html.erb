@@ -6,13 +6,18 @@
 <br>
 
 <h1> Les teams: </h1>
+<br>
+<br>
 
 <% @teams.each do |t| %>
+<div class="team-card">
   <h4> <%= t.title %> </h4>
   <p> <%= t.description %> </p>
   <p><%= t.location %></p>
-  <p><%= t.capacity %></p>
+  <% members = t.requests.where(team_id: t.id) %>
+   <p> Membres :  <%= members.count %> / <%= t.capacity %></p>
   <%= link_to "See more", team_path(t), class: "card-link" %>
+</div>
 <% end %>
 
 
