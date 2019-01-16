@@ -1,6 +1,16 @@
 class TeamsController < ApplicationController
+
   def index
-    @teams= Team.all
+    if params[:query].present?
+     sql_query = " teams.title @@ :query \
+        OR teams.description @@ :query
+        OR teams.location @@ :query \
+        "
+      #@teams = Team.where(sql_query, query: "%#{params[:query]}%")
+      @teams = Team.search_by_title_and_description_and_location("%#{params[:query]}%")
+    else
+      @teams= Team.all
+    end
     @markers = @teams.map do |t|
       {
         lng: t.longitude,
@@ -30,7 +40,7 @@ class TeamsController < ApplicationController
   end
 
  def team_params
-    params.require(:team).permit(:title, :description, :address, :capacity)
+    params.require(:team).permit(:title, :description, :location, :capacity, :photo)
   end
 
 end

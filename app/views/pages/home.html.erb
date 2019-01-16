@@ -1,13 +1,19 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 70%), url('<%= image_path 'annie-spratt-294450-unsplash.jpg' %>');">
 
-  <h1>  </h1>
 
-  <h2> Freelance, trouve ta team ici </h2>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 70%), url('<%= image_path 'marvin-meyer-571072-unsplash.jpg' %>');">
+
+
+<h1> FREE - TEAMS </h1>
+
+<%= link_to "REJOINS UNE TEAM", teams_path, class: "home-btn" %>
+
+
 </div>
 
+<div class="container">
 
-<p>
+ <p>
   Tu commences en freelance et tu galères seul devant ton ordi?
   T'as envie de travailler avec d'autres freelances pour échanger des tips?
   T'es un expert et t'as envie d'aider des petits jeunots à monter en compétences?
@@ -15,5 +21,11 @@
 
   CREES ou REJOINS une team !
 </p>
+
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+<%= react_component("Button", @Button) %>
+
+</div>
+
 
 

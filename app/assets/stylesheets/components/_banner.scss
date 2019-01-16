@@ -3,21 +3,21 @@ height: 100vh;
 background-size: cover;
 margin-top: -20px;
 margin-bottom: 30px;
-position: relative;
+
+
 }
 
 
 
 
 
-.banner h2{
+.banner h1{
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 10%;
   color: white;
   font-size: 80px;
   font-family: Lato;
+  z-index: 10;
+  padding-top: 300px;
 
 }
 
@@ -35,3 +35,14 @@ margin-bottom: 30px;
   color: white;
   padding-top: 10%;
 }
+
+
+.home-pic{
+  height: 100vh;
+  width: 50%;
+  background-size: cover;
+  margin-left: 50%;
+}
+
+
+

@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -33,6 +33,13 @@ gem 'simple_form'
 gem "geocoder"
 
 gem "figaro"
+gem 'pg_search'
+
+gem 'carrierwave', '~> 1.2'
+gem 'webpacker'
+
+gem 'cloudinary', '~> 1.9.1'
+gem 'react-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

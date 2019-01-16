@@ -1,0 +1,40 @@
+.btn-round{
+  border: solid 1px #60F7DC;
+  padding: 5px 10px;
+  color: #60F7DC;
+  border-radius: 30px;
+  margin: 10px 0px;
+
+
+}
+
+
+.home-btn{
+  border: solid 1px white;
+  padding: 7px 15px;
+  color: white;
+  border-radius: 30px;
+  margin-left: 42%;
+   font-size: 20px;
+
+}
+
+.home-btn a{
+text-decoration: none;
+}
+
+
+.home-btn a:hover{
+  color: white;
+
+}
+
+
+.hello{
+width: 200px;
+height: 100vh;
+background: red;
+position: absolute;
+top: 0px;
+right: 0px;
+}

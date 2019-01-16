@@ -1,4 +1,5 @@
-<div class="container" >
+
+<div class="white-container " >
   <br>
   <br>
   <br>
@@ -7,31 +8,91 @@
 
   <h1> Mes teams </h1>
 
+
+
   <% @teams.each do |t| %>
-  <h4> <%= t.title %> </h4>
+
+ <div class="team-show">
+  <h4> <%= t.title %> </h4>  <%= link_to "Create event!", new_team_event_path(t), class: "card-link" %>
   <p> <%= t.description %> </p>
   <p> <%= t.location %> </p>
-  <p> <%= t.capacity %></p>
+  <p> Membres :<% members = t.requests.where(team_id: t.id) %> <%= members.count %> /<%= t.capacity %> </p>
+
+
+
 
     <% if t.requests.count > 0 %>
-     Requests:
+    <div class="request" >
+     <h4> Requests: </h4>
+     <% new_requests = [] %>
+     <% old_requests = [] %>
       <% t.requests.each do |r| %>
-        <% if r.status == "Pending" %>
-        <div class="request" >
-          REQUEST: <%= r.text %>
-          RESPONSE : <%= r.answer %>
-          STATUS: <%= r.status %>
-        </div>
-        <%= simple_form_for [t, r] do |f| %>
+          <% if r.status == "Pending" %>
+          <br>
+          <% new_requests << r %>
+          <% else %>
+          <% old_requests << r %>
+          <% end %>
+        <%end%>
+
+
+
+          <h3> New requests: </h3>
+          <% if new_requests.count < 1 %>
+          <p> No new requests </p>
+          <% else %>
+          <% new_requests.each do |re| %>
+
+
+          <%= re.text %>
+          <%= re.user.username %>
+          <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path re.user.picture, height: 300, width: 400, crop: :fill %>')">
+    </div>
+
+
+        <%= simple_form_for [t, re] do |f| %>
         <%= f.input :answer %>
         <%= f.input :status, collection: ["Pending", "Accepted", "Declined"] %>
-        <%= f.submit "Send my answer", class: "btn btn-blue" %>
+        <%= f.submit "Send my answer", class: "btn-round" %>
         <% end %>
+        <%end %>
 
-<%= link_to "Create event!", new_team_event_path(t), class: "card-link" %>
-        <% end %>
-      <%end%>
-    <%end%>
+        <%end %>
+
+
+         <h3> Previous requests </h3>
+         <% if old_requests.count < 1 %>
+          <p> No requests </p>
+          <% else %>
+          <% old_requests.each do |o| %>
+
+        <br>
+        <div class="request" >
+
+           <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path o.user.picture, height: 300, width: 400, crop: :fill %>')">
+            </div>
+
+           <%= o.text %>
+          RESPONSE : <%= o.answer %>
+          STATUS: <%= o.status %>
+          <br>
+
+          </div>
+          <% end%>
+
+          <%end%>
+
+
+
+ <%end%>
+  </div>
+ </div>
+
+
+
+
+
+
   <% end %>
 
 

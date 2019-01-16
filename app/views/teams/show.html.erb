@@ -1,42 +1,65 @@
-<div class="container" >
+
+<div class="white-container " >
   <br>
   <br>
   <br>
   <br>
 
-
-
+<div class="team-show">
 
   <h4> <%= @team.title %> </h4>
-  <p> <%= @team.description %> </p>
-  <p> Capacity : <%= @team.capacity %> </p>
+   <p> <%= @team.location %> </p>
 
 
 
 
-  <%= link_to "Make a request", new_team_request_path(@team), class: "btn" %>
+     <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path @team.photo, height: 300, width: 400, crop: :fill %>')">
+    </div>
 
-
-
-  <h4> Members : </h4>
-
-  <% @members.each do |m| %>
-  <%= m.user.username %>
-  <%= m.user.id %>
-  <% end %>
+  <p class="description"> <%= @team.description %> </p>
+  <%= link_to "Demander à rejoindre", new_team_request_path(@team), class: "btn-round" %>
 
 
 
 
-<h4> Events : </h4>
+
+<br>
+<br>
+<br>
 
 
+  <h4> Members  <span class="count"> <%= @members.count %> /<%= @team.capacity %> </span>  </h4>
+  <% if @members.count < 1 %>
+     <p> No members yet </p>
+  <%else%>
+    <% @members.each do |m| %>
+    <%= m.user.username %>
+    <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path m.user.picture, height: 300, width: 400, crop: :fill %>')">
+    </div>
+
+    <% end %>
+  <%end%>
+
+<br>
+<br>
+<br>
+
+
+<h4> Events  </h4>
+
+<% if @events.count < 1 %>
+     <p> No events yet </p>
+  <%else%>
 <% @events.each do |e| %>
+
 <p> <%= e.title %>
 <%= e.description %>
 <%= e.location %>
 <%= e.date %> </p>
 <%end %>
+<%end%>
 
+
+</div>
 
 </div>

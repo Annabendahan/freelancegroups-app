@@ -1,5 +1,78 @@
 .team-card{
   background: white;
-  padding: 20px 20px;
-  margin: 10px;
+  padding: 30px 30px;
+  margin: 20px auto;
+  width: 70%;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.td p {
+color : lightgrey;
+
+}
+
+
+.td h4{
+  font-weight: 900;
+}
+
+.td {
+  flex: 0 0 50%;
+}
+
+
+.lm {
+  flex: 0 0 20%;
+}
+
+.lm a{
+  text-decoration: none;
+}
+
+.lm a:hover{
+  color: #5acdb3;
+  font-weight: 500;
+}
+
+i {
+  color: #5acdb3;
+  opacity: 0.5;
+  padding: 5px;
+}
+
+.team-show{
+  background-color: white;
+
+  padding: 30px 30px;
+  font-family: Roboto;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}
+
+.team-show h4{
+  font-weight: 900;
+  font-size: 25px;
+  color: #60F7DC;
+  margin-top: 10px;
+}
+
+
+.count{
+  font-size: 22px;
+  color: lightgrey;
+}
+
+.description {
+  color: lightgrey;
+}
+
+
+.tavatar{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
 }

@@ -1,9 +1,19 @@
-<div class="container" >
+<div class="white-container " >
 
 <br>
 <br>
 <br>
+<%= form_tag teams_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a team"
+  %>
+<% end %>
 <br>
+
+<%= link_to "Créer une team", new_team_path, class: "btn-round" %>
+
 
 <h1> Les teams: </h1>
 <br>
@@ -11,12 +21,24 @@
 
 <% @teams.each do |t| %>
 <div class="team-card">
-  <h4> <%= t.title %> </h4>
-  <p> <%= t.description %> </p>
-  <p><%= t.location %></p>
+
+  <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo, height: 300, width: 400, crop: :fill %>')">
+    </div>
+  <div class="td">
+    <h4> <%= t.title %> </h4>
+    <p> <%= t.description %> </p>
+
+  </div>
+    <div class="lm">
+  <p> <i class="fas fa-map-marker"></i> <%= t.location %></p>
+
   <% members = t.requests.where(team_id: t.id) %>
-   <p> Membres :  <%= members.count %> / <%= t.capacity %></p>
-  <%= link_to "See more", team_path(t), class: "card-link" %>
+   <p> <i class="fas fa-users"></i> Membres :  <%= members.count %> / <%= t.capacity %></p>
+   <br>
+    <%= link_to "SEE MORE", team_path(t), class: "btn-round" %>
+
+ </div>
+
 </div>
 <% end %>
 
