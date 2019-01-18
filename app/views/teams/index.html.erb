@@ -3,19 +3,27 @@
 <br>
 <br>
 <br>
+<br>
+
+<h1> Les teams: </h1>
+
+
+
 <%= form_tag teams_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
-    placeholder: "Find a team"
+    class: "form-control-i",
+    placeholder:  "Find a team"
   %>
+  <input type="submit" value="Search" id="button-search-home" >
 <% end %>
+<br>
+<br>
 <br>
 
 <%= link_to "Créer une team", new_team_path, class: "btn-round" %>
 
-
-<h1> Les teams: </h1>
+<div class="grey-container">
 <br>
 <br>
 
@@ -27,6 +35,7 @@
   <div class="td">
     <h4> <%= t.title %> </h4>
     <p> <%= t.description %> </p>
+     <%= link_to "EN SAVOIR PLUS" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
 
   </div>
     <div class="lm">
@@ -35,13 +44,13 @@
   <% members = t.requests.where(team_id: t.id) %>
    <p> <i class="fas fa-users"></i> Membres :  <%= members.count %> / <%= t.capacity %></p>
    <br>
-    <%= link_to "SEE MORE", team_path(t), class: "btn-round" %>
+
 
  </div>
 
 </div>
 <% end %>
-
+</div>
 
 </div>
 

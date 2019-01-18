@@ -21,7 +21,9 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @request = Request.new
     @members = Request.where(team_id: @team.id, status: "Accepted")
+    @requests = Request.where(team_id: @team.id, status: "Pending")
     @events = Event.where(team_id: @team.id)
   end
 

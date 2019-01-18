@@ -1,29 +1,66 @@
 
+<div class= "blue-container">
 
+  <div class="bc-text">
+    <h1> Free  </h1>
+    <h1> Teams </h1>
+    <h2 > La plateforme pour trouver des partenaires de freelance </h2>
+    <br>
+    <br>
+    <br>
+    <%= link_to "REJOINS UNE TEAM", teams_path, class: "home-btn" %>
+  </div>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 70%), url('<%= image_path 'marvin-meyer-571072-unsplash.jpg' %>');">
-
-
-<h1> FREE - TEAMS </h1>
-
-<%= link_to "REJOINS UNE TEAM", teams_path, class: "home-btn" %>
-
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%), url('<%= image_path 'marvin-meyer-571072-unsplash.jpg' %>');">
+  </div>
 
 </div>
+<hr>
 
-<div class="container">
+<div class="white-container">
+  <br>
+  <br>
+  <br>
 
- <p>
-  Tu commences en freelance et tu galères seul devant ton ordi?
-  T'as envie de travailler avec d'autres freelances pour échanger des tips?
-  T'es un expert et t'as envie d'aider des petits jeunots à monter en compétences?
-  Ou tu veux de la compagnie tout simplement ?
+ <h3><i class="fas fa-minus"></i>  Trouve ton groupe idéal </h3>
+   <p class="p-home">
+    Tu commences en freelance et tu galères seul devant ton ordi?
+    T'as envie de travailler avec d'autres freelances pour échanger des tips?
+    T'es un expert et t'as envie d'aider des petits jeunots à monter en compétences?
+    Ou tu veux de la compagnie tout simplement ?
 
-  CREES ou REJOINS une team !
-</p>
+    CREES ou REJOINS une team !
+   </p>
 
-<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
-<%= react_component("Button", @Button) %>
+
+  <div class="block-pic">
+   <div class="home-pic" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%), url('<%= image_path 'hannah-wei-84051-unsplash.jpg' %>');">
+    </div>
+    <div class="home-t">
+      <h3> Rencontres </h3>
+      <p>Marre de travailler seul sur ton canap? Rejoins une équipe près de chez toi pour rencontrer d’autres freelances et travailler ensemble</p>
+    </div>
+  </div>
+
+
+
+  <div class="block-pic">
+    <div class="home-t">
+      <h3> Compétences </h3>
+      <p>Crée ou rejoins un groupe tout niveaux pour pouvoir monter en compétence rapidement, aider ou te faire aider par tes partenaires.</p>
+    </div>
+   <div class="home-pic" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%), url('<%= image_path 'helloquence-61189-unsplash.jpg' %>');">
+    </div>
+  </div>
+
+  <div class="block-pic">
+   <div class="home-pic" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 70%), url('<%= image_path 'helloquence-61189-unsplash.jpg' %>');">
+    </div>
+    <div class="home-t">
+      <h3> Echanges </h3>
+      <p>Rejoins des teams pluridisciplinaires ( backend, frontend, design, UX...) pour échanger, apprendre, gérer les différentes phases de projets!</p>
+    </div>
+  </div>
 
 </div>
 

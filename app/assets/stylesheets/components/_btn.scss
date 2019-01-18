@@ -10,12 +10,14 @@
 
 
 .home-btn{
-  border: solid 1px white;
-  padding: 7px 15px;
+  border: solid 0.5px white;
+  padding: 5px 10px;
+  margin-left: 10vh;
   color: white;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
   border-radius: 30px;
-  margin-left: 42%;
-   font-size: 20px;
+   font-size: 14px;
 
 }
 
@@ -37,4 +39,16 @@ background: red;
 position: absolute;
 top: 0px;
 right: 0px;
+}
+
+.btn-simple{
+  color: #60F7DC;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.td a:hover{
+  text-decoration:none;
+  color:#60F7DC;
+  opacity: 0.6;
 }

@@ -2,21 +2,37 @@
 @import "bootstrap";
 @import "components/index";
 
+
+
+
 body {
   background: #F4F4F4;
 }
 
 
 p {
-  font-family: Lato;
+ font-family: 'Roboto', sans-serif;
+ font-size: 16px;
 }
 
 h1 {
-text-align: center;
-font-family: Lato;
-font-size: 900;
+
+font-family: 'Roboto', sans-serif;
+font-size: 30px;
 font-weight: 900;
+
 }
+
+
+
+
+h4{
+font-family: 'Roboto', sans-serif;
+}
+
+
+
+
 
 
 .white-container{
@@ -24,12 +40,31 @@ font-weight: 900;
   padding: 50px 50px;
 }
 
+.white-container h1 {
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-size: 30px;
+font-weight: 700;
+padding-bottom: 40px;
+color: #A0A3A2;
+}
+
+
+.white-container h3 {
+color: #092150;
+font-size: 35px;
+margin-top: 5%;
+font-family: 'Roboto', sans-serif;
+font-weight: 900;
+}
 
 
 .blue-container{
-  background: #22F6E9;
+  display:flex;
+  background: #092150;
   color: white;
-  height: 2920vh;
+  height: 100vh;
+  padding-top: 10%;
 }
 
 
@@ -44,6 +79,12 @@ font-weight: 900;
   color: #22F6E9;
   background: white;
 
-
-
 }
+
+.grey-container{
+  background: #F5F5F5;
+  padding: 5px 0px;
+}
+
+
+

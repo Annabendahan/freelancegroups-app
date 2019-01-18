@@ -5,16 +5,49 @@
   <br>
   <br>
 
-
   <h1> My requests </h1>
+
+  <div class= "grey-container">
 
   <% @requests.each do |r| %>
   <div class="request">
-  <h4>  Request to  <strong> <%= r.team.title %> </strong></h4>
-  <p> Your message: <%= r.text %> </p>
-  <p> Status : <%= r.status %> </p>
-</div>
+    <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path r.team.photo, height: 300, width: 400, crop: :fill %>')">
+    </div>
+    <div class="r-content">
+      <h4>  <strong> <%= r.team.title %> </strong></h4>
+      <p> <strong>Q :</strong> " <%= r.text %> " </p>
+      <p> <strong>R : </strong> " <%= r.answer %> " </p>
+    </div>
 
+      <% if r.status === "Accepted" %>
+      <div class="r-status">
+        <p> <%= r.status %> </p>
+      </div>
+      <div class="r-icone">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <% elsif r.status === "Declined" %>
+      <div class="r-status">
+        <p> <%= r.status %> </p>
+      </div>
+      <div class="r-icone">
+        <i class="fas fa-times-circle"> </i>
+      </div>
+      <% elsif r.status === "Pending" %>
+      <div class="r-status">
+        <p> <%= r.status %> </p>
+      </div>
+      <div class="r-icone">
+        <i class="fas fa-clock"></i>
+      </div>
+
+      <% end %>
+
+
+  </div>
   <%end%>
+
+
+  </div>
 </div>
 

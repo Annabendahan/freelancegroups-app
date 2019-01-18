@@ -1,65 +1,111 @@
 
+<br>
+<br>
+<br>
+<br>
+
+
+
 <div class="white-container " >
   <br>
   <br>
   <br>
   <br>
 
-<div class="team-show">
-
-  <h4> <%= @team.title %> </h4>
-   <p> <%= @team.location %> </p>
-
-
-
-
+  <div class="team-show">
+    <div class="team-card-show">
      <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path @team.photo, height: 300, width: 400, crop: :fill %>')">
+     </div>
+     <div class="td">
+       <h4> <%= @team.title %> </h4>
+       <p> <%= @team.description %> </p>
+     </div>
+     <div class="lm">
+      <p> <i class="fas fa-map-marker"> </i><%= @team.location %> </p>
+
+
+      <% if current_user != @team.user %>
+
+
+      <%= link_to "Demander à rejoindre",  class: "btn-round" %>
+       <div class="join">
+      <%= render 'requests/form' %>
+       </div>
+
+      <%end %>
+
+
+
     </div>
 
-  <p class="description"> <%= @team.description %> </p>
-  <%= link_to "Demander à rejoindre", new_team_request_path(@team), class: "btn-round" %>
 
 
+  </div>
 
-
-
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 
   <h4> Members  <span class="count"> <%= @members.count %> /<%= @team.capacity %> </span>  </h4>
   <% if @members.count < 1 %>
-     <p> No members yet </p>
+  <p> No members yet </p>
   <%else%>
-    <% @members.each do |m| %>
-    <%= m.user.username %>
-    <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path m.user.picture, height: 300, width: 400, crop: :fill %>')">
-    </div>
+  <% @members.each do |m| %>
+  <%= m.user.username %>
+  <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path m.user.picture, height: 300, width: 400, crop: :fill %>')">
+  </div>
 
-    <% end %>
+  <% end %>
   <%end%>
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 
-<h4> Events  </h4>
+  <h4> Events  </h4>
+      <% if current_user == @team.user %>
+      <%= link_to "Create event", new_team_event_path(@team), class: "btn-round" %>
+      <% end %>
 
-<% if @events.count < 1 %>
-     <p> No events yet </p>
+  <% if @events.count < 1 %>
+  <p> No events yet </p>
   <%else%>
-<% @events.each do |e| %>
+  <% @events.each do |e| %>
 
-<p> <%= e.title %>
-<%= e.description %>
-<%= e.location %>
-<%= e.date %> </p>
-<%end %>
-<%end%>
+  <p> <%= e.title %>
+    <%= e.description %>
+    <%= e.location %>
+    <%= e.date %> </p>
+    <%end %>
+    <%end%>
 
+  <h4> Requests </h4>
+
+<% if @requests.count < 1  %>
+<p> No new requests </p>
+<% else %>
+<% @requests.each do |re| %>
+ <%= re.text %>
+          <%= re.user.username %>
+          <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path re.user.picture, height: 300, width: 400, crop: :fill %>')">
+    </div>
+
+
+        <%= simple_form_for [@team, re] do |f| %>
+        <%= f.input :answer %>
+        <%= f.input :status, collection: ["Pending", "Accepted", "Declined"] %>
+        <%= f.submit "Send my answer", class: "btn-round" %>
+        <% end %>
+        <%end %>
+        <%end%>
+
+
+  </div>
 
 </div>
 
-</div>
+
+
+

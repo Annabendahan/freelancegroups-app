@@ -1,4 +1,47 @@
 .request{
-  background: #F5F4F4;
-  padding: 20px 20px;
+  background: white;
+  padding: 30px 20px;
+  margin: 30px auto;
+  border-radius: 10px;
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  font-family: Roboto;
+  align-items: center;
+
 }
+
+.request i {
+  font-size: 42px;
+  margin-bottom: 10px;
+
+}
+
+.request p {
+  color: #A4A2A2;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.request h4{
+  font-size: 19px;
+  padding-bottom: 15px;
+}
+
+
+.r-content{
+  flex: 0 0 50%;
+}
+
+
+.fa-check-circle {
+  color: #15FF3B;
+}
+
+
+.fa-times-circle{
+  color: #FF0707;
+}
+
+.fa-clock{
+color: #FF9315}
