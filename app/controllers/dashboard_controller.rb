@@ -1,8 +1,11 @@
 class DashboardController < ApplicationController
 
   def my_teams
-    @teams = Team.where(user: current_user)
-    @requests = Request.all
+    @teams_created = Team.where(user: current_user).order(created_at: :desc)
+    @teams = Team.all
+    @my_teams = Team.where(user: current_user)
+    @requests = Request.where(user: current_user).order(created_at: :desc)
+
 
 
   end

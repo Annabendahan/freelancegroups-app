@@ -12,7 +12,8 @@ body {
 
 p {
  font-family: 'Roboto', sans-serif;
- font-size: 16px;
+ font-size: 14px;
+ color: #6E6C6C;
 }
 
 h1 {
@@ -23,6 +24,9 @@ font-weight: 900;
 
 }
 
+h3{
+  font-family: 'Roboto', sans-serif;
+}
 
 
 
@@ -34,10 +38,9 @@ font-family: 'Roboto', sans-serif;
 
 
 
-
 .white-container{
   background: white;
-  padding: 50px 50px;
+  padding: 50px 80px;
 }
 
 .white-container h1 {
@@ -51,7 +54,7 @@ color: #A0A3A2;
 
 
 .white-container h3 {
-color: #092150;
+color: #061635;
 font-size: 35px;
 margin-top: 5%;
 font-family: 'Roboto', sans-serif;
@@ -59,31 +62,65 @@ font-weight: 900;
 }
 
 
-.blue-container{
+.dash-container{
+  background: #FBFBFB;
+  padding: 10px 10px;
+  display: flex;
+  margin: -20px;
+}
+
+.dash-container h3{
+  font-size: 15px;
+  background: white;
+  padding: 5px 10px;
+  margin:10px;
+  border-radius: 5px;
+}
+
+.dash-container h2{
+  color: #061635;
+font-size: 25px;
+font-weight: 700px;
+background: white;
+  padding: 5px 10px;
+  margin:10px;
+   border-radius: 5px;
+}
+
+.blue-container-h{
   display:flex;
-  background: #092150;
+  background: #061635;
   color: white;
   height: 100vh;
   padding-top: 10%;
 }
 
 
-.blue-container a {
+.blue-container-h a {
   text-decoration: none;
   color: white;
-  font-weight: 200;
+  font-weight: 100;
 }
 
-.blue-container a:hover{
-  transition: 1s;
-  color: #22F6E9;
+.blue-container-h a:hover{
+  transition: 0.5s;
+  color: #061635;
   background: white;
+  text-decoration: none;
+  font-weight: 300;
 
 }
+
+.blue-container{
+  background: #061635;
+}
+
+
 
 .grey-container{
   background: #F5F5F5;
   padding: 5px 0px;
+  margin: 10px 100px;
 }
 
 

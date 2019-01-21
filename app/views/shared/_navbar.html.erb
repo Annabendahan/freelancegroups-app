@@ -7,9 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-  <%= link_to "LES TEAMS", teams_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "MES TEAMS", my_teams_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "MES REQUETES", my_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <%= link_to "Les groupes", teams_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Dashboard", my_teams_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%#= link_to "MES REQUETES", my_requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
 
@@ -17,7 +17,7 @@
 
       <!-- Links when logged in -->
 
-      <%= link_to destroy_user_session_path, class: "login", method: :delete do %>
+      <%= link_to destroy_user_session_path,  method: :delete do %>
                   <%= t(".sign_out", default: "Log out") %>
               <% end %>
 

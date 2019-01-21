@@ -1,57 +1,45 @@
-<div class="white-container " >
+<div class="blue-container ">
 
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-<h1> Les teams: </h1>
-
-
-
-<%= form_tag teams_path, method: :get do %>
+  <%= form_tag teams_path, method: :get do %>
   <%= text_field_tag :query,
-    params[:query],
-    class: "form-control-i",
+  params[:query],
+  class: "form-control-i",
     placeholder:  "Find a team"
-  %>
-  <input type="submit" value="Search" id="button-search-home" >
-<% end %>
-<br>
-<br>
-<br>
+    %>
+    <input type="submit" value="Search" id="button-search-home" >
+    <% end %>
+    <br>
+    <br>
+    <br>
 
-<%= link_to "Créer une team", new_team_path, class: "btn-round" %>
+    <%= link_to "Créer une team", new_team_path, class: "btn-round" %>
 
-<div class="grey-container">
-<br>
-<br>
+  <div class="grey-container">
 
-<% @teams.each do |t| %>
-<div class="team-card">
+      <% @teams.each do |t| %>
+      <div class="team-card">
+        <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo, height: 300, width: 400, crop: :fill %>')">
+        </div>
+        <div class="td">
+          <h4> <%= t.title.capitalize %> </h4>
+          <p> <i class="fas fa-map-marker"></i> <%= t.location %></p>
+          <% members = t.requests.where(team_id: t.id) %>
+          <p> <i class="fas fa-users"></i> Membres :  <%= members.count %> / <%= t.capacity %></p>
+        </div>
+        <div class="lm">
+          <p> <%= t.description %> </p>
+          <%= link_to "EN SAVOIR PLUS" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
+          <br>
+        </div>
+      </div>
+      <% end %>
 
-  <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo, height: 300, width: 400, crop: :fill %>')">
-    </div>
-  <div class="td">
-    <h4> <%= t.title %> </h4>
-    <p> <%= t.description %> </p>
-     <%= link_to "EN SAVOIR PLUS" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
-
+</div>
   </div>
-    <div class="lm">
-  <p> <i class="fas fa-map-marker"></i> <%= t.location %></p>
-
-  <% members = t.requests.where(team_id: t.id) %>
-   <p> <i class="fas fa-users"></i> Membres :  <%= members.count %> / <%= t.capacity %></p>
-   <br>
-
-
- </div>
-
-</div>
-<% end %>
-</div>
-
-</div>
 
 

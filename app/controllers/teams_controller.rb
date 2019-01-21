@@ -7,9 +7,9 @@ class TeamsController < ApplicationController
         OR teams.location @@ :query \
         "
       #@teams = Team.where(sql_query, query: "%#{params[:query]}%")
-      @teams = Team.search_by_title_and_description_and_location("%#{params[:query]}%")
+      @teams = Team.search_by_title_and_description_and_location("%#{params[:query]}%").order(created_at: :desc)
     else
-      @teams= Team.all
+      @teams= Team.all.order(created_at: :desc)
     end
     @markers = @teams.map do |t|
       {

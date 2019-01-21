@@ -1,0 +1,50 @@
+.dc-left{
+  flex: 0 0 70%;
+  background: #FBFBFB;
+
+
+}
+
+
+
+.dc-right{
+  flex: 0 0 28%;
+  background: white;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+
+.team-line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:10px;
+  background: white;
+  padding: 0px 20px;
+  border-radius: 5px;
+}
+
+
+
+.notif{
+  background: red;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: white;
+  text-align: center;
+  padding-top: 2px;
+  position: absolute;
+  left: 40px;
+}
+
+
+.pavatar{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  margin: auto;
+}

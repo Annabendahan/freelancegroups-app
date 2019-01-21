@@ -1,44 +1,121 @@
 
 <div class="white-container " >
-  <br>
-  <br>
-  <br>
-  <br>
+<br>
+<br>
+<br>
+  <div class="dash-container" >
+    <div class="dc-left">
+     <h2>ADMIN</h2>
+     <h3>Equipes créées</h3>
 
+     <% @teams_created.each do |t| %>
 
-  <h1> Mes teams </h1>
+     <div class="team-line">
+      <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo %>')">
+        <% count = 0 %>
+        <% t.requests.each do |r| %>
+        <% if r.status == "Pending" %>
+        <% count+=1 %>
+        <% end %>
+        <% end%>
+        <% if count > 1 %>
+        <div class="notif">
+          <%= count %>
+        </div>
+        <%end %>
 
-  <div class="grey-container " >
-
-    <% @teams.each do |t| %>
-
-    <div class="team-card">
-
-      <div class="tavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo, height: 300, width: 400, crop: :fill %>')">
       </div>
       <div class="td">
-        <h4> <%= t.title %> </h4>
-        <p> <%= t.description %> </p>
-         <%= link_to "MODIFIER" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
-
+        <p> <%= t.title.capitalize %> </p>
       </div>
       <div class="lm">
-        <p> <i class="fas fa-map-marker"></i> <%= t.location %></p>
+       <%= link_to "GÉRER" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
+     </div>
+   </div>
 
-        <% members = t.requests.where(team_id: t.id) %>
-        <p> <i class="fas fa-users"></i> Membres :  <%= members.count %> / <%= t.capacity %></p>
-        <br>
+   <%end%>
+      <br>
+      <br>
+   <h2>MEMBRE</h2>
 
+   <h3>Mes équipes</h3>
 
-      </div>
-
+   <% @teams.each do |t| %>
+   <% t.requests.each do |r| %>
+   <% if r.status == "Accepted" && r.user == current_user %>
+   <div class="team-line">
+    <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path t.photo %>')">
     </div>
+    <div class="td">
+      <p> <%= t.title.capitalize %> </p>
+    </div>
+    <div class="lm">
+     <%= link_to "DETAILS" '<i class="fas fa-long-arrow-alt-right"></i>'.html_safe, team_path(t), class: "btn-simple" %>
+   </div>
+ </div>
+ <% end %>
+ <% end %>
+ <% end %>
 
-    <%end%>
+<br>
+<br>
+
+ <h3>Mes demandes</h3>
+ <% @requests.each do |r| %>
+ <div class="request">
+  <div class="uavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path r.team.photo, height: 300, width: 400, crop: :fill %>')">
+  </div>
+  <div class="r-title">
+    <h4>  <strong> <%= r.team.title.capitalize %> </strong></h4>
+      </div>
+    <div class="r-content">
+    <p> <strong>Q :</strong> " <%= r.text.capitalize %> " </p>
+    <p> <strong>R : </strong> " <%= r.answer %> " </p>
   </div>
 
+    <% if r.status === "Accepted" %>
+    <div class="r-status">
+      <p> <%= r.status %> </p>
+    </div>
+    <div class="r-icone">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <% elsif r.status === "Declined" %>
+    <div class="r-status">
+      <p> <%= r.status %> </p>
+    </div>
+    <div class="r-icone">
+      <i class="fas fa-times-circle"> </i>
+    </div>
+    <% elsif r.status === "Pending" %>
+    <div class="r-status">
+      <p> <%= r.status %> </p>
+    </div>
+    <div class="r-icone">
+      <i class="fas fa-clock"></i>
+    </div>
+     <% end %>
+
+  </div>
+
+
+
+
+<%end%>
 </div>
 
+
+<div class="dc-right">
+  <div class="pavatar", style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),  url('<%= image_path current_user.picture %>')">
+    <p> <%= current_user.username %> </p>
+    <p> <%= current_user.firstname %> </p>
+    <p> <%= current_user.lastname %> </p>
+
+  </div>
 </div>
+</div>
+</div>
+
+
 
 

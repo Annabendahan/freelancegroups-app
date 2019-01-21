@@ -34,17 +34,27 @@ margin-bottom: 30px;
   width: 50%;
   margin-top: 40px;
   margin-left: 20%;
+  text-align: justify;
+   color: #7E7C7C;
 }
 
 .block-pic{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 
 
+.block-pic p {
+  color: #7E7C7C;
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+}
+
 .home-t{
-  flex: 0 0 30%;
+  flex: 0 0 50%;
+  padding: 10px 100px;
 
 }
 .home-pic{

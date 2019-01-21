@@ -1,13 +1,12 @@
 .team-card{
-  background: white;
-  padding: 30px 30px;
-  margin: 30px auto;
-  width: 75%;
+  background: green;
+  padding: 20px 40px;
+  float: left;
+  margin: 10px;
+  width: 30%;
 
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
 }
 
 
@@ -23,20 +22,19 @@
   align-items: center;
 }
 
-.td p {
-color: #949494;
 
-}
 
 
 .td h4{
-  font-weight: 900;
+  font-weight: 700;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
+
 }
 
 .td {
-  flex: 0 0 40%;
+   position: relative;
+   left: 90px;
 }
 
 .td i{
@@ -46,7 +44,7 @@ color: #949494;
 
 
 .lm {
-  flex: 0 0 25%;
+  margin: 20px;
 }
 
 .lm p{
@@ -102,8 +100,10 @@ i {
 
 
 .tavatar{
+  position: absolute;
+  left: 15px;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
 }
